@@ -6,21 +6,19 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {ContactComponent} from './contact/contact.component';
-import {AboutComponent} from './about/about.component';
-import { TeamMembersComponent } from './about/components/team-members/team-members.component';
+import {AboutModule} from './about/about.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ContactComponent,
-    AboutComponent,
-    TeamMembersComponent
+    ContactComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AboutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
