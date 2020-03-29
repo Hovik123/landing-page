@@ -7,7 +7,7 @@ import {ProgressModel} from '../../../../models/progress';
   styleUrls: ['./progresses.component.scss']
 })
 export class ProgressesComponent implements OnInit {
-  @Input() ProgressBar: ProgressModel;
+  @Input() progress: ProgressModel;
 
   constructor() {
   }
