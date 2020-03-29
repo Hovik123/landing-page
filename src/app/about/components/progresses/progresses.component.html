@@ -1,0 +1,5 @@
+<strong>{{progress.name}}</strong>
+<span class="pull-right">{{progress.width}}%</span>
+<div class="progress">
+  <div [class]="progress.status" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" [style.width.%]="progress.width"></div>
+</div>
