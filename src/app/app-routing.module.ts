@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'contact',
-    component: ContactComponent
+    loadChildren: () => import('./contact/contact.module').then((module) => module.ContactModule)
   },
   {
     path: 'about',
