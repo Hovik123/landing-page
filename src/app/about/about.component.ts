@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CrewMemberModel} from '../../models/crew-member.model';
+import {ProgressModel} from '../../models/progress';
 
 @Component({
   selector: 'app-about',
@@ -8,9 +9,11 @@ import {CrewMemberModel} from '../../models/crew-member.model';
 })
 export class AboutComponent implements OnInit {
   crewMembers: CrewMemberModel[];
+  progressBars: ProgressModel[];
 
   constructor() {
     this.crewMembers = [];
+    this.progressBars = [];
   }
 
   ngOnInit() {
@@ -27,6 +30,20 @@ export class AboutComponent implements OnInit {
         name: 'MARY',
         position: 'Frontend Developer',
         about: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo.'}
+    ];
+    this.progressBars = [
+      {name: 'HTML5  CSS3',
+        width: 90,
+        status: 'progress-bar progress-bar-warning'
+      },
+      {name: 'Bootstrap',
+        width: 80,
+        status: 'progress-bar progress-bar-danger'
+      },
+      {name: 'Ux design',
+        width: 70,
+        status: 'progress-bar -bar-primary'
+      }
     ];
   }
 
