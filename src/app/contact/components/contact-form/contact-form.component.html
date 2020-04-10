@@ -1,2 +1,21 @@
-<label for="name">NAME</label>
-<input name="name" type="text" class="form-control" id="name">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  <label>NAME</label>
+  <input  class="form-control" id="name" formControlName="name">
+
+  <div *ngIf="myForm.get('name').hasError('required')">
+    Oops, please provide a name!
+  </div>
+  <label>EMAIL</label>
+  <input  class="form-control" id="email" formControlName="email">
+  <div *ngIf="myForm.controls.email.hasError('pattern')">
+    Please enter valid email
+  </div>
+  <div *ngIf="myForm.controls.message.hasError('minLength')">
+    Not enough characters
+  </div>
+  <label>MESSAGE</label>
+  <input  class="form-control" id="message"  formControlName="message">
+
+  <button type="submit" class="btn btn-default" [disabled]="myForm.invalid">SEND</button>
+
+</form>
