@@ -1,21 +1,24 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
   <label>NAME</label>
-  <input  class="form-control" id="name" formControlName="name">
+  <input  class="form-control" formControlName="name">
 
   <div *ngIf="myForm.get('name').hasError('required')">
     Oops, please provide a name!
   </div>
   <label>EMAIL</label>
-  <input  class="form-control" id="email" formControlName="email">
-  <div *ngIf="myForm.controls.email.hasError('pattern')">
+  <input  class="form-control" formControlName="email">
+  <div *ngIf="myForm.get('email').hasError('email')">
     Please enter valid email
   </div>
-  <div *ngIf="myForm.controls.message.hasError('minLength')">
+
+  <label>MESSAGE</label>
+  <input  class="form-control"  formControlName="message">
+  <div *ngIf="myForm.get('message').hasError('minLength')">
     Not enough characters
   </div>
-  <label>MESSAGE</label>
-  <input  class="form-control" id="message"  formControlName="message">
-
+  <select formControlName="select">
+    <option value="">Test</option>
+  </select>
   <button type="submit" class="btn btn-default" [disabled]="myForm.invalid">SEND</button>
 
 </form>
