@@ -1,24 +1,38 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
   <label>NAME</label>
-  <input  class="form-control" formControlName="name">
+  <input class="form-control" formControlName="name">
 
   <div *ngIf="myForm.get('name').hasError('required')">
     Oops, please provide a name!
   </div>
   <label>EMAIL</label>
-  <input  class="form-control" formControlName="email">
+  <input class="form-control" formControlName="email">
   <div *ngIf="myForm.get('email').hasError('email')">
     Please enter valid email
   </div>
 
   <label>MESSAGE</label>
-  <input  class="form-control"  formControlName="message">
-  <div *ngIf="myForm.get('message').hasError('minLength')">
+  <input class="form-control" formControlName="message">
+  <div *ngIf="myForm.get('message').hasError('minlength')">
     Not enough characters
   </div>
-  <select formControlName="select">
-    <option value="">Test</option>
-  </select>
+
+
+  <div formArrayName="phones" *ngFor="let phone of phones.controls;  let i = index;">
+    <ng-container [formGroupName]="i">
+      <label>PHONE {{i+1}}</label>
+      <input class="form-control" formControlName="phone">
+      <div *ngIf="phone.get('phone').hasError('minlength')">
+        Please enter valid phone number!
+      </div>
+      <button class="btn btn-default remove"  (click)="removeItem(i)">Remove phone</button>
+    </ng-container>
+
+  </div>
+
+  <button class="btn btn-default add" (click)="addItem()" [disabled]="phones.length===10">ADD PHONE</button>
+
+
   <button type="submit" class="btn btn-default" [disabled]="myForm.invalid">SEND</button>
 
 </form>
